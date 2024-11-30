@@ -1,26 +1,44 @@
+
 add_newline = false
 
 # Prompt
-format = """$username@$hostname $directory$git_branch
-$character
+format = """$fill >
+[│](tekhelet)$username[@](celadon)$hostname $directory$giti_branch [:3](thistle)
+[└─](tekhelet)$character
 """
+
+palette = 'rain'
+
 [username]
-format = "[$user](181 bold)"
+format = "[$user](181 bold pale)"
 show_always = true
 
 [hostname]
 ssh_only = false
-format = "[$hostname](white)"
+format = "[$hostname](thistle)"
 
 [directory]
-format = "[$path](111 bold)"
+format = "[$path](111 bold pomp)"
 
 [git_branch]
-format = '[\($branch\)](white)'
+format = '[\($branch\)](vanilla)'
 
 [character]
-success_symbol = '[>](bold #a6d9ef)'
-error_symbol = '[>](bold #ffd8ef)'
+success_symbol = '[>](bold tekhelet)'
+error_symbol = '[<](bold prussian)'
 
+[fill]
+symbol = '─'
+style = "tekhelet"
 
+[palettes.rain]
+tekhelet = '#4A306D'
+prussian = '#0E273C'
+pomp = '#A167A5'
+thistle = '#D3BCCC'
+pale = '#E8D7F1'
+vanilla = '#E1D89F'
+celadon = '#BEE5BF'
+green = '#4A306D' #$tekhelet
+red = '#A167A5' #pomp
 
