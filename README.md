@@ -1,5 +1,7 @@
 # Dot files
 
+![display](./preview.png)
+
 ### Goal
 
 This is but an attempt to store my config and various files for my 42 student dump.
