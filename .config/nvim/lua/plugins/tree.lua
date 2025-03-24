@@ -14,7 +14,8 @@ return
 			sorter = "case_sensitive",
 		  },
 		  view = {
-			width = 30,
+			side = "right",
+			width = 25,
 		  },
 		  renderer = {
 			group_empty = true,
@@ -22,6 +23,8 @@ return
 		  filters = {
 			dotfiles = true,
 		  }
-	})
-end
+		})
+		-- keymap
+		vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+	end
 }
