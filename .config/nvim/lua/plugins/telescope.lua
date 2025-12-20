@@ -1,5 +1,4 @@
-return
-{
+return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -19,10 +18,10 @@ return
 						override_generic_sorter = true,
 						override_file_sorter = true,
 						case_mode = "smart_case",
-					},
+					}
 				},
 				path_display = { "smart" },
-				mappings = {
+								mappings = {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
 						["<C-j>"] = actions.move_selection_next, -- move to next result
@@ -31,8 +30,8 @@ return
 			},
 			pickers = {
 				find_files = {
-					follow = true,
-				},
+					follow = true
+				}
 			},
 		})
 		telescope.load_extension("fzf")
