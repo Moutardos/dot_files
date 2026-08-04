@@ -3,7 +3,8 @@ add_newline = false
 
 # Prompt
 format = """$fill >
-[│](tekhelet)$username[@](celadon)$hostname $directory$giti_branch [:3](thistle)
+[│](tekhelet)$username[@](celadon)$hostname $directory$git_branch
+[│](tekhelet)$python[:>](thistle)
 [└─](tekhelet)$character
 """
 
@@ -12,6 +13,11 @@ palette = 'rain'
 [username]
 format = "[$user](181 bold pale)"
 show_always = true
+
+[python]
+detect_extensions = []
+detect_files = []
+format = '[\(${virtualenv}\)]($style) '
 
 [hostname]
 ssh_only = false
