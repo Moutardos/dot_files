@@ -24,14 +24,13 @@ vim.opt.foldlevelstart = 99
 
 -- Diagnostics
 vim.diagnostic.config({
-	virtual_text = false,
 	signs = true,
 	update_in_insert = true,
 	underline = true,
 	severity_sort = false,
 	float = {
 		border = "rounded",
-		source = "always",
+		source = true,
 		header = "",
 		prefix = "",
 	},
@@ -39,15 +38,14 @@ vim.diagnostic.config({
 
 vim.api.nvim_create_autocmd("CursorHold", {
 	callback = function()
-		-- On ne tente d'ouvrir le float que s'il y a un diagnostic ici
-		local opts = {
+		-- open_float ne fait rien s'il n'y a pas de diagnostic sous le curseur
+		vim.diagnostic.open_float({
 			focusable = false,
 			close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
 			border = "rounded",
-			source = "always",
+			source = true,
 			prefix = " ",
 			scope = "cursor",
-		}
-		vim.diagnostic.open_float(nil, opts)
+		})
 	end,
 })

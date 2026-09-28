@@ -1,3 +1,4 @@
+-- Shows errors and warnings inline
 return {
 	"rachartier/tiny-inline-diagnostic.nvim",
 	event = "VeryLazy",

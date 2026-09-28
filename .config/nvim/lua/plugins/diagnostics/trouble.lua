@@ -1,3 +1,4 @@
+-- Panel listing every diagnostic
 return {
 	"folke/trouble.nvim",
 	opts = {}, -- utilise les réglages par défaut

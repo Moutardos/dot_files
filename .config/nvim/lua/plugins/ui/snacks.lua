@@ -1,3 +1,4 @@
+-- dashboard, file explorer, fuzzy finder, notifications, indent guides, smooth scrolling.
 return {
 	"folke/snacks.nvim",
 	priority = 1000,

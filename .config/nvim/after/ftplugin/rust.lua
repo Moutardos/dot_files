@@ -1,5 +1,5 @@
--- Enable inlay hints (shows types inline)
-vim.lsp.inlay_hint.enable(true)
+-- Enable inlay hints (shows types inline) for this buffer
+vim.lsp.inlay_hint.enable(true, { bufnr = 0 })
 
 -- Keybind
 local bufnr = vim.api.nvim_get_current_buf()
@@ -10,14 +10,13 @@ vim.keymap.set(
     vim.cmd.RustLsp('codeAction') -- supports rust-analyzer's grouping
     -- or vim.lsp.buf.codeAction() if you don't want grouping.
   end,
-  { silent = true, buffer = bufnr }
+  { silent = true, buf = bufnr, desc = "Rust code action" }
 )
 vim.keymap.set(
   "n",
   "K",  -- Override Neovim's built-in hover keymap with rustaceanvim's hover actions
   function()
     vim.cmd.RustLsp({'hover', 'actions'})
-  print("Rust code action keymap works!")
   end,
-  { silent = true, buffer = bufnr }
+  { silent = true, buf = bufnr, desc = "Rust hover actions" }
 )

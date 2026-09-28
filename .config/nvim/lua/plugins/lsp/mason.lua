@@ -1,9 +1,8 @@
+-- Downloads language servers and tools into Neovim
 return {
-	"williamboman/mason.nvim",
+	"mason-org/mason.nvim",
 	dependencies = {
-		"williamboman/mason-lspconfig.nvim",
-		"stevearc/conform.nvim",
-		"jay-babu/mason-null-ls.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 
@@ -25,6 +24,20 @@ return {
 			ensure_installed = {
 				"clangd",
 				"lua_ls",
+			},
+			automatic_enable = {
+				exclude = {
+					"rust_analyzer", -- started by rustaceanvim
+					"stylua", -- used as a formatter through conform, not as an LSP
+				},
+			},
+		})
+
+		-- Non-LSP tools
+		require("mason-tool-installer").setup({
+			ensure_installed = {
+				"stylua", -- Lua formatter (conform); clang-format comes from the system (/usr/bin)
+				"tree-sitter-cli", -- needed by nvim-treesitter to build parsers
 			},
 		})
 	end,
