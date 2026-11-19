@@ -17,7 +17,7 @@ return {
 			group = vim.api.nvim_create_augroup("user-floaterm", { clear = true }),
 			pattern = "floaterm",
 			callback = function(args)
-				keymap.set("t", "<Esc>", "<C-\\><C-n>:q<CR>", { buf = args.buf, silent = true })
+				keymap.set("t", "<Esc>", "<C-\\><C-n>:q<CR>", { buffer = args.buffer, silent = true })
 			end,
 		})
 	end,

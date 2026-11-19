@@ -20,7 +20,7 @@ return {
 				group = vim.api.nvim_create_augroup("user-treesitter", { clear = true }),
 				callback = function(args)
 					local lang = vim.treesitter.language.get_lang(args.match)
-					if not lang or pcall(vim.treesitter.start, args.buf, lang) then
+					if not lang or pcall(vim.treesitter.start, args.buffer, lang) then
 						return
 					end
 					-- Missing parser: install it, like the old `auto_install = true`
@@ -30,8 +30,8 @@ return {
 					end
 					tried[lang] = true
 					ts.install(lang):await(vim.schedule_wrap(function()
-						if vim.api.nvim_buf_is_valid(args.buf) then
-							pcall(vim.treesitter.start, args.buf, lang)
+						if vim.api.nvim_buf_is_valid(args.buffer) then
+							pcall(vim.treesitter.start, args.buffer, lang)
 						end
 					end))
 				end,

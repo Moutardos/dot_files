@@ -2,7 +2,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		-- Neovim already maps K (hover), grr (references), grn (rename),
 		-- gra (code action), gri (implementation), grt (type definition)
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { silent = true, buf = args.buf, desc = "Go to definition" })
+		vim.keymap.set(
+			"n",
+			"gd",
+			vim.lsp.buf.definition,
+			{ silent = true, buffer = args.buf, desc = "Go to definition" }
+		)
 
 		-- Prefer LSP folding when the server supports it (no treesitter parser needed)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
